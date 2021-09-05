@@ -384,7 +384,7 @@ class WebSocket(object):
         it returns `True`.
         """
         if self.terminated:
-            logger.debug("WebSocket is already terminated")
+            logger.info("WebSocket is already terminated")
             return False
         try:
             b = b''
@@ -462,7 +462,7 @@ class WebSocket(object):
         self.reading_buffer_size = s.parser.send(bytes) or DEFAULT_READING_SIZE
 
         if s.closing is not None:
-            logger.debug("Closing message received (%d) '%s'" % (s.closing.code, s.closing.reason))
+            logger.info("Closing message received (%d) '%s'" % (s.closing.code, s.closing.reason))
             if not self.server_terminated:
                 self.close(s.closing.code, s.closing.reason)
             else:
@@ -471,7 +471,7 @@ class WebSocket(object):
 
         if s.errors:
             for error in s.errors:
-                logger.debug("Error message received (%d) '%s'" % (error.code, error.reason))
+                logger.info("Error message received (%d) '%s'" % (error.code, error.reason))
                 self.close(error.code, error.reason)
             s.errors = []
             return False

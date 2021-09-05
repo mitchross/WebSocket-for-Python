@@ -249,7 +249,7 @@ class WebSocketManager(threading.Thread):
         """
         if websocket in self:
             return
-
+        logger.info("Hello Custom Test!")
         logger.info("Managing websocket %s" % format_addresses(websocket))
         websocket.opened()
         with self.lock:

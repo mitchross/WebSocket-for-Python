@@ -36,7 +36,7 @@ __all__ = ['WS_KEY', 'WS_VERSION', 'configure_logger', 'format_addresses']
 WS_KEY = b"258EAFA5-E914-47DA-95CA-C5AB0DC85B11"
 WS_VERSION = (8, 13)
 
-def configure_logger(stdout=True, filepath=None, level=logging.DEBUG):
+def configure_logger(stdout=True, filepath=None, level=logging.INFO):
     logger = logging.getLogger('ws4py')
     logger.setLevel(level)
     logfmt = logging.Formatter("[%(asctime)s] %(levelname)s %(message)s")

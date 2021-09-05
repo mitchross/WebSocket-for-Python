@@ -108,7 +108,7 @@ class WebSocket(object):
         Underlying connection.
         """
 
-        self._is_secure = hasattr(sock, '_ssl') or hasattr(sock, '_sslobj')
+        self._is_secure = True
         """
         Tell us if the socket is secure or not.
         """
